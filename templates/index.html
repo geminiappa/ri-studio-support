@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="ru">
 
 <head>
 
-<title>
-RI Studio Support
-</title>
+<meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>RI Studio Support</title>
 
+<link rel="stylesheet" href="/static/style.css">
 
 </head>
 
@@ -18,41 +17,26 @@ RI Studio Support
 <body>
 
 
-
 <header class="header">
 
 
 <div class="logo">
-
 RI Studio
-
 </div>
 
 
+<div class="header-actions">
 
-<div class="nav">
 
-
-<a href="https://ri-studio-games.onrender.com/" target="_blank">
-
-<button>
-
+<a class="btn btn-light"
+href="https://ri-studio-games.onrender.com/">
 Главный сайт
-
-</button>
-
 </a>
 
 
-
-<a href="/admin/login">
-
-<button>
-
+<a class="btn"
+href="/admin/login">
 Админ
-
-</button>
-
 </a>
 
 
@@ -65,19 +49,15 @@ RI Studio
 
 
 
-
-
-<section class="hero">
+<main class="container fade">
 
 
 
 <div class="badge">
 
-● О НАС И ПОДДЕРЖКА
+• О НАС И ПОДДЕРЖКА
 
 </div>
-
-
 
 
 
@@ -92,25 +72,21 @@ RI Studio
 
 
 
-
 <p>
 
-Создайте обращение, опишите проблему и получите ответ от нашей команды.
+Создайте обращение, опишите проблему
+и получите ответ от нашей команды.
 
 </p>
 
 
 
 
+<div class="actions">
 
 
-<div class="buttons">
-
-
-
-<a href="https://ri-studio-games.onrender.com/"
-
-class="secondary">
+<a class="btn btn-light"
+href="https://ri-studio-games.onrender.com/">
 
 Главный сайт
 
@@ -118,16 +94,12 @@ class="secondary">
 
 
 
-
-
-<a href="/create"
-
-class="primary">
+<a class="btn"
+href="/create">
 
 Перейти в поддержку
 
 </a>
-
 
 
 </div>
@@ -138,12 +110,13 @@ class="primary">
 
 
 
-<div class="support">
+<section class="card support-card">
+
 
 
 <h2>
 
-💬 Поддержка
+💬 Центр поддержки
 
 </h2>
 
@@ -151,26 +124,21 @@ class="primary">
 
 <p>
 
-Создайте новый тикет для связи с командой.
+Есть вопрос или проблема?
+
+Создайте тикет и мы ответим.
 
 </p>
 
 
 
-<a href="/create"
 
-class="primary">
+<a class="btn"
+href="/create">
 
-Создать тикет →
+Создать обращение →
 
 </a>
-
-
-
-</div>
-
-
-
 
 
 
@@ -179,6 +147,9 @@ class="primary">
 
 
 
+
+
+</main>
 
 
 </body>
