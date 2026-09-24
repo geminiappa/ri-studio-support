@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="ru">
 
 <head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>
-RI Studio Admin
+RI Studio Admin Login
 </title>
 
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="/static/style.css">
 
 
 </head>
+
 
 
 <body>
@@ -21,8 +25,25 @@ RI Studio Admin
 
 <header class="header">
 
+
 <div class="logo">
+
 RI Studio Admin
+
+</div>
+
+
+<div class="header-actions">
+
+
+<a class="btn btn-light"
+href="/">
+
+← Назад
+
+</a>
+
+
 </div>
 
 
@@ -32,14 +53,19 @@ RI Studio Admin
 
 
 
-<section class="hero">
+
+
+
+<main class="container fade">
+
 
 
 <div class="badge">
 
-● ADMIN ACCESS
+• ADMIN ACCESS
 
 </div>
+
 
 
 
@@ -47,16 +73,18 @@ RI Studio Admin
 <h1>
 
 Вход<br>
-в панель управления.
+
+администратора.
 
 </h1>
 
 
 
 
+
 <p>
 
-Введите ваш ID администратора для доступа.
+Введите ваш ID администратора для доступа к панели.
 
 </p>
 
@@ -64,7 +92,11 @@ RI Studio Admin
 
 
 
-<div class="support">
+
+
+<section class="card"
+style="max-width:500px;">
+
 
 
 <h2>
@@ -75,42 +107,59 @@ RI Studio Admin
 
 
 
-<form method="post">
+
+
+<form method="POST"
+action="/admin/login">
+
 
 
 <input
+
+type="number"
+
 name="id"
-placeholder="Ваш ID"
+
+placeholder="ID администратора"
+
 required
-style="
-width:100%;
-padding:15px;
-border-radius:20px;
-border:1px solid #ddd;
-font-size:16px;
-"
+
 >
+
+
+
 
 
 <br><br>
 
 
-<button class="primary">
 
-Войти
+
+<button class="btn">
+
+Войти в панель →
 
 </button>
+
+
 
 
 </form>
 
 
-</div>
-
-
 
 
 </section>
+
+
+
+
+
+
+
+</main>
+
+
 
 
 
