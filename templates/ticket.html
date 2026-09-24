@@ -1,98 +1,17 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="ru">
 
 <head>
 
-<title>
-RI Studio Support
-</title>
+<meta charset="UTF-8">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>RI Studio Support</title>
 
-<style>
-
-#chat{
-
-display:flex;
-flex-direction:column;
-gap:12px;
-max-height:500px;
-overflow-y:auto;
-padding:10px;
-
-}
-
-
-.message{
-
-background:white;
-
-border:1px solid #ddd;
-
-padding:15px;
-
-border-radius:20px;
-
-animation:fade .3s ease;
-
-}
-
-
-.system{
-
-background:#111;
-
-color:white;
-
-}
-
-
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-transform:translateY(15px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-
-.rating button{
-
-border:0;
-
-background:#111;
-
-color:white;
-
-padding:12px;
-
-border-radius:20px;
-
-cursor:pointer;
-
-margin:5px;
-
-}
-
-
-</style>
-
+<link rel="stylesheet" href="/static/style.css">
 
 </head>
-
 
 
 <body>
@@ -104,37 +23,29 @@ margin:5px;
 
 <div class="logo">
 
-RI Studio
+RI Studio Support
 
 </div>
 
 
 
-<div class="nav">
+<div class="header-actions">
 
 
-<a href="/">
-
-<button>
+<a class="btn btn-light"
+href="/">
 
 ← Назад
 
-</button>
-
 </a>
 
 
+<a class="btn"
+href="https://ri-studio-games.onrender.com/">
 
-<a href="https://ri-studio-games.onrender.com/" target="_blank">
-
-<button>
-
-Главный сайт
-
-</button>
+Сайт
 
 </a>
-
 
 
 </div>
@@ -148,16 +59,15 @@ RI Studio
 
 
 
-<section class="hero">
+<main class="container fade">
 
 
 
 <div class="badge">
 
-● TICKET #{{ticket.id}}
+TICKET #{{ticket.id}}
 
 </div>
-
 
 
 
@@ -174,17 +84,15 @@ RI Studio
 
 
 
-<p>
+<div class="card">
 
-Тема:
 
-<b>
+
+<h2>
 
 {{ticket.title}}
 
-</b>
-
-</p>
+</h2>
 
 
 
@@ -202,11 +110,15 @@ RI Studio
 
 
 
+</div>
 
 
 
 
-<div class="support">
+
+
+
+<section class="card">
 
 
 
@@ -219,7 +131,9 @@ RI Studio
 
 
 
-<div id="chat">
+
+<div id="chat"
+class="chat">
 
 </div>
 
@@ -227,97 +141,35 @@ RI Studio
 
 
 
-<form id="form">
+
+
+<form id="messageForm">
+
 
 
 <textarea
 
 id="text"
 
-placeholder="Ваше сообщение"
+placeholder="Введите сообщение..."
 
 ></textarea>
 
 
 
-<br><br>
+<br>
 
 
-<button class="primary">
+
+<button class="btn">
 
 Отправить
 
 </button>
 
 
-</form>
-
-
-
-</div>
-
-
-
-
-
-
-
-{% if ticket.status=="Закрыт" %}
-
-
-<div class="support rating">
-
-
-<h2>
-
-⭐ Оцените поддержку
-
-</h2>
-
-
-<p>
-
-Спасибо за обращение!
-
-</p>
-
-
-
-<form action="/rate/{{ticket.id}}" method="post">
-
-
-<button name="rating" value="5">
-⭐⭐⭐⭐⭐
-</button>
-
-
-<button name="rating" value="4">
-⭐⭐⭐⭐
-</button>
-
-
-<button name="rating" value="3">
-⭐⭐⭐
-</button>
-
-
-<button name="rating" value="2">
-⭐⭐
-</button>
-
-
-<button name="rating" value="1">
-⭐
-</button>
-
 
 </form>
-
-
-</div>
-
-
-{% endif %}
 
 
 
@@ -331,82 +183,165 @@ placeholder="Ваше сообщение"
 
 
 
+{% if ticket.status=="Закрыт" %}
+
+
+
+<section class="card">
+
+
+
+<h2>
+
+⭐ Оцените поддержку
+
+</h2>
+
+
+
+<form method="POST"
+action="/rate/{{ticket.id}}">
+
+
+<button class="btn"
+name="rating"
+value="5">
+
+⭐⭐⭐⭐⭐
+
+</button>
+
+
+
+<button class="btn"
+name="rating"
+value="4">
+
+⭐⭐⭐⭐
+
+</button>
+
+
+
+<button class="btn"
+name="rating"
+value="3">
+
+⭐⭐⭐
+
+</button>
+
+
+
+</form>
+
+
+
+</section>
+
+
+
+{% endif %}
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
 <script>
 
 
-let id={{ticket.id}};
+let ticketId = {{ticket.id}};
 
-let last=0;
-
-
-
-async function load(){
+let lastId = 0;
 
 
-let r=await fetch(
-"/messages/"+id
+
+async function loadMessages(){
+
+
+let response = await fetch(
+"/messages/"+ticketId
 );
 
 
-let data=await r.json();
+let messages = await response.json();
 
 
 
-let chat=document
-.getElementById("chat");
+let chat =
+document.getElementById("chat");
 
 
 
-data.forEach(m=>{
+messages.forEach(msg=>{
 
 
-if(m.id<=last)
+if(msg.id <= lastId)
 
 return;
 
 
-last=m.id;
+
+lastId = msg.id;
 
 
 
-let div=document.createElement("div");
-
-
-div.className="message";
+let div =
+document.createElement("div");
 
 
 
-if(m.sender=="Система"){
+div.classList.add(
+"message"
+);
+
+
+
+if(msg.sender=="Пользователь"){
+
+div.classList.add("user");
+
+}
+
+
+else if(msg.sender=="Система"){
 
 div.classList.add("system");
 
 }
 
 
+else{
 
-div.innerHTML=
+div.classList.add("admin");
 
-`
-
-<b>
-
-${m.sender}
-
-</b>
+}
 
 
-<br>
 
+div.innerHTML = `
 
-${m.text}
-
+<b>${msg.sender}</b>
 
 <br>
 
+${msg.text}
+
+<br>
 
 <small>
 
-${m.date}
+${msg.created || ""}
 
 </small>
 
@@ -417,11 +352,12 @@ ${m.date}
 chat.appendChild(div);
 
 
+
 });
 
 
 
-chat.scrollTop=
+chat.scrollTop =
 chat.scrollHeight;
 
 
@@ -429,44 +365,49 @@ chat.scrollHeight;
 
 
 
+
+
 setInterval(
-load,
+loadMessages,
 2000
 );
 
 
-load();
+loadMessages();
+
+
 
 
 
 
 
 document
-.getElementById("form")
+.getElementById("messageForm")
 .addEventListener(
 "submit",
 
-async e=>{
+async function(e){
 
 
 e.preventDefault();
 
 
 
-let input=document
-.getElementById("text");
+let text =
+document.getElementById("text");
 
 
 
-if(!input.value)
+if(!text.value)
 
 return;
 
 
 
+
 await fetch(
 
-"/ticket/"+id,
+"/ticket/"+ticketId,
 
 {
 
@@ -481,7 +422,7 @@ headers:{
 
 body:
 
-"text="+encodeURIComponent(input.value)
+"text="+encodeURIComponent(text.value)
 
 }
 
@@ -489,10 +430,14 @@ body:
 
 
 
-input.value="";
+text.value="";
 
 
-});
+
+}
+
+);
+
 
 
 </script>
