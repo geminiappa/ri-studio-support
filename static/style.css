@@ -1,32 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 
-* {
+*{
     box-sizing:border-box;
 }
 
 
-html,body {
+body{
 
     margin:0;
-    padding:0;
 
-    font-family:"Inter", Arial, sans-serif;
+    font-family:"Inter",Arial,sans-serif;
 
     color:#111;
-
-}
-
-
-/* фон сетка */
-
-body {
 
     background:#fafafa;
 
     background-image:
-    linear-gradient(#00000008 1px, transparent 1px),
-    linear-gradient(90deg,#00000008 1px, transparent 1px);
+    linear-gradient(#00000008 1px,transparent 1px),
+    linear-gradient(90deg,#00000008 1px,transparent 1px);
 
     background-size:32px 32px;
 
@@ -34,42 +26,110 @@ body {
 
 
 
+/* HEADER */
 
+header,
+.nav{
 
-/* общий контейнер */
+    height:75px;
 
-.container {
+    display:flex;
 
-    width:min(1100px, 100%);
+    align-items:center;
 
-    margin:auto;
+    justify-content:space-between;
 
-    padding:40px 30px;
+    padding:0 70px;
+
+    background:white;
+
+    border-bottom:1px solid #ddd;
 
 }
 
 
 
+.logo{
+
+    font-size:22px;
+
+    font-weight:800;
+
+}
+
+
+
+/* контейнер */
+
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:70px 20px;
+
+}
+
+
+
+/* текст */
+
+
+h1{
+
+    font-size:72px;
+
+    line-height:.95;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    margin:30px 0;
+
+}
+
+
+
+h2{
+
+    font-size:36px;
+
+    font-weight:800;
+
+}
+
+
+
+p{
+
+    font-size:18px;
+
+    color:#666;
+
+}
+
 
 
 /* кнопки */
 
+
 button,
-.btn,
-a.btn {
-
-
-    border:none;
+.btn{
 
     background:#111;
 
     color:white;
 
-    padding:14px 28px;
+    border:none;
+
+    padding:15px 30px;
 
     border-radius:999px;
 
-    font-size:15px;
+    font-size:16px;
 
     font-weight:700;
 
@@ -77,36 +137,28 @@ a.btn {
 
     display:inline-flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    gap:8px;
-
-    cursor:pointer;
+    justify-content:center;
 
     transition:.25s;
 
-
 }
-
 
 
 button:hover,
-.btn:hover {
+.btn:hover{
 
-    transform:translateY(-2px);
-
-    opacity:.85;
+    transform:translateY(-3px);
 
 }
 
 
 
+/* белая кнопка */
 
-/* белые кнопки */
 
-.btn-light {
+.btn-white{
 
     background:white;
 
@@ -121,63 +173,56 @@ button:hover,
 
 /* карточки */
 
-.card {
 
+.card{
 
     background:white;
 
     border:1px solid #ddd;
 
-    border-radius:28px;
+    border-radius:30px;
 
-    padding:30px;
+    padding:35px;
 
 }
 
 
 
-
-/* поля */
-
-
-input,
-textarea {
+/* ADMIN */
 
 
-    width:100%;
-
-    border:1px solid #ddd;
+.ticket-card{
 
     background:white;
 
-    border-radius:16px;
+    border:1px solid #ddd;
 
-    padding:15px;
+    border-radius:30px;
 
-    font-family:inherit;
+    padding:35px;
 
-    font-size:16px;
+    margin:20px 0;
+
+}
+
+
+
+.ticket-card:hover{
+
+    transform:translateY(-3px);
+
+    transition:.2s;
 
 }
 
 
 
 
-textarea {
 
-    resize:none;
-
-}
+/* CHAT */
 
 
-
-/* ===================
-   ЧАТ
-=================== */
-
-
-.chat {
-
+.chat{
 
     display:flex;
 
@@ -189,38 +234,32 @@ textarea {
 
 
 
-.message {
+.message{
 
+    padding:15px 20px;
+
+    border-radius:20px;
 
     max-width:70%;
 
-    padding:14px 18px;
-
-    border-radius:18px;
-
-    background:white;
-
-    border:1px solid #ddd;
+    background:#eee;
 
 }
 
 
-
-.message.user {
-
-
-    align-self:flex-end;
+.message.user{
 
     background:#111;
 
     color:white;
 
+    align-self:flex-end;
+
 }
 
 
 
-.message.admin {
-
+.message.admin{
 
     align-self:flex-start;
 
@@ -228,55 +267,20 @@ textarea {
 
 
 
-.message.system {
 
 
-    align-self:center;
+textarea,
+input{
 
-    font-size:13px;
+    width:100%;
 
-    background:#eee;
+    padding:15px;
 
-}
-
-
-
-
-/* ===================
-   АДМИНКА
-=================== */
-
-
-.admin-card {
-
-
-    background:white;
+    border-radius:18px;
 
     border:1px solid #ddd;
 
-    border-radius:24px;
-
-    padding:24px;
-
-    margin-bottom:16px;
-
-}
-
-
-
-.admin-card a {
-
-
-    text-decoration:none;
-
-}
-
-
-
-.status {
-
-
-    font-weight:700;
+    font-family:inherit;
 
 }
 
@@ -284,64 +288,53 @@ textarea {
 
 
 
-/* ===================
-   HEADER
-=================== */
-
-
-header,
-.nav {
-
-
-    background:white;
-
-    border-bottom:1px solid #ddd;
-
-    padding:20px 30px;
-
-
-}
-
-
-
-
-
-/* ===================
-   МОБИЛА
-=================== */
+/* MOBILE */
 
 
 @media(max-width:768px){
 
 
-.container {
+header,
+.nav{
 
-    padding:20px 15px;
+    padding:0 20px;
 
-}
+    height:auto;
 
-
-
-h1 {
-
-
-    font-size:38px!important;
-
-    line-height:1.05;
+    min-height:70px;
 
 }
 
 
 
-h2 {
+.container{
 
-    font-size:26px;
+    padding:40px 15px;
 
 }
 
 
 
-.card {
+h1{
+
+    font-size:42px;
+
+    letter-spacing:-1px;
+
+}
+
+
+
+h2{
+
+    font-size:28px;
+
+}
+
+
+
+.card,
+.ticket-card{
 
     padding:20px;
 
@@ -352,9 +345,7 @@ h2 {
 
 
 button,
-.btn,
-a.btn {
-
+.btn{
 
     width:100%;
 
@@ -362,31 +353,11 @@ a.btn {
 
 
 
-.message {
+.message{
 
     max-width:90%;
 
 }
-
-
-
-.admin-card {
-
-
-    padding:18px;
-
-}
-
-
-
-header,
-.nav {
-
-
-    padding:15px;
-
-}
-
 
 
 }
