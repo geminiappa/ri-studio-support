@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-
 *{
     box-sizing:border-box;
 }
 
-
 body{
-
     margin:0;
-
     font-family:Inter,Arial,sans-serif;
-
     color:#111;
-
     background:#fafafa;
 
     background-image:
@@ -21,84 +15,72 @@ body{
     linear-gradient(90deg,#00000008 1px,transparent 1px);
 
     background-size:32px 32px;
-
 }
-
 
 
 /* HEADER */
 
 header,
 .nav{
-
-    height:80px;
-
-    background:white;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 70px;
-
+    height:72px;
+    background:#fff;
     border-bottom:1px solid #ddd;
 
-}
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
+    padding:0 70px;
+}
 
 
 .logo{
-
-    font-size:22px;
-
+    font-size:20px;
     font-weight:900;
-
 }
 
 
 
-
-/* MAIN */
+/* CONTAINER */
 
 .container{
 
-    max-width:1100px;
-
+    max-width:1200px;
     margin:auto;
-
-    padding:70px 30px;
+    padding:70px 40px;
 
 }
 
 
 
+/* BADGE */
 
 .badge{
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:8px 18px;
-
-    border:1px solid #ddd;
-
-    border-radius:30px;
+    padding:8px 16px;
 
     background:white;
 
-    font-weight:700;
+    border:1px solid #ddd;
 
-    font-size:14px;
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:700;
 
 }
 
 
+
+/* TITLE */
 
 
 h1{
 
-    font-size:76px;
+    font-size:78px;
 
     line-height:.95;
 
@@ -106,8 +88,9 @@ h1{
 
     font-weight:900;
 
-}
+    margin:35px 0;
 
+}
 
 
 h2{
@@ -120,42 +103,21 @@ h2{
 
 
 
-
 p{
 
-    color:#666;
-
     font-size:18px;
+
+    color:#666;
 
 }
 
 
 
-
-
 /* BUTTONS */
-
 
 button,
 .btn,
 a.btn{
-
-
-    border-radius:999px;
-
-    padding:15px 32px;
-
-    background:#111;
-
-    color:white;
-
-    border:none;
-
-    font-weight:800;
-
-    font-size:16px;
-
-    text-decoration:none;
 
     display:inline-flex;
 
@@ -163,15 +125,34 @@ a.btn{
 
     justify-content:center;
 
+    gap:8px;
+
+
+    background:#111;
+
+    color:white;
+
+    border:none;
+
+
+    padding:16px 34px;
+
+
+    border-radius:999px;
+
+
+    font-size:15px;
+
+    font-weight:800;
+
+
+    text-decoration:none;
+
+
     cursor:pointer;
 
 
-    transition:
-
-    transform .25s ease,
-
-    box-shadow .25s ease;
-
+    transition:.25s ease;
 
 }
 
@@ -181,11 +162,9 @@ button:hover,
 .btn:hover,
 a.btn:hover{
 
-
     transform:translateY(-4px);
 
     box-shadow:0 15px 30px #0003;
-
 
 }
 
@@ -193,7 +172,6 @@ a.btn:hover{
 
 
 .btn-light{
-
 
     background:white;
 
@@ -206,12 +184,9 @@ a.btn:hover{
 
 
 
-
 /* CARDS */
 
-
 .card{
-
 
     background:white;
 
@@ -221,14 +196,11 @@ a.btn:hover{
 
     padding:35px;
 
-    margin-top:30px;
-
 
     box-shadow:0 20px 50px #00000008;
 
 
 }
-
 
 
 
@@ -240,6 +212,18 @@ a.btn:hover{
 
 }
 
+
+
+/* SUPPORT BLOCK */
+
+
+.support-card{
+
+    max-width:500px;
+
+    margin-top:50px;
+
+}
 
 
 
@@ -256,32 +240,22 @@ a.btn:hover{
 
     border-radius:30px;
 
+
     padding:35px;
 
     margin:20px 0;
 
 
-}
+    transition:.25s;
 
-
-
-.ticket-card h3{
-
-
-    font-size:32px;
 
 }
 
 
 
+.ticket-card:hover{
 
-
-.ticket-card a{
-
-
-    color:#111;
-
-    font-weight:700;
+    transform:translateY(-5px);
 
 }
 
@@ -292,16 +266,32 @@ a.btn:hover{
 /* CHAT */
 
 
+.chat{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
 .message{
 
 
-    padding:15px 20px;
+    max-width:70%;
+
+
+    padding:16px 20px;
+
 
     border-radius:22px;
 
-    max-width:70%;
 
     background:#eee;
+
 
 }
 
@@ -309,21 +299,31 @@ a.btn:hover{
 
 .message.user{
 
+    align-self:flex-end;
+
     background:#111;
 
     color:white;
 
-    margin-left:auto;
-
 }
+
 
 
 .message.admin{
 
-    margin-right:auto;
+    align-self:flex-start;
 
 }
 
+
+
+.message.system{
+
+    align-self:center;
+
+    background:#ddd;
+
+}
 
 
 
@@ -332,15 +332,39 @@ textarea,
 input{
 
 
-    border:1px solid #ddd;
-
-    border-radius:18px;
+    width:100%;
 
     padding:16px;
 
-    width:100%;
+
+    border-radius:18px;
+
+
+    border:1px solid #ddd;
+
 
     font-family:inherit;
+
+    font-size:16px;
+
+
+}
+
+
+
+
+
+/* ADMIN */
+
+.admin-card{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:30px;
+
+    padding:30px;
 
 }
 
@@ -357,16 +381,20 @@ input{
 header,
 .nav{
 
-    padding:0 20px;
+    height:auto;
+
+    padding:18px 20px;
 
 }
+
 
 
 .container{
 
-    padding:40px 15px;
+    padding:35px 15px;
 
 }
+
 
 
 h1{
@@ -387,8 +415,17 @@ h2{
 
 
 
+p{
+
+    font-size:16px;
+
+}
+
+
+
+button,
 .btn,
-button{
+a.btn{
 
     width:100%;
 
@@ -405,5 +442,35 @@ button{
 
 }
 
+
+
+.message{
+
+    max-width:90%;
+
+}
+
+
+}
+
+
+
+/* маленькие телефоны */
+
+@media(max-width:420px){
+
+
+h1{
+
+    font-size:34px;
+
+}
+
+
+.logo{
+
+    font-size:18px;
+
+}
 
 }
