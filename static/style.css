@@ -1,72 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
+
+
+html,body {
+
+    margin:0;
+    padding:0;
+
+    font-family:"Inter", Arial, sans-serif;
+
+    color:#111;
+
+}
+
+
+/* фон сетка */
 
 body {
-    margin:0;
-    font-family: Inter, Arial, sans-serif;
+
     background:#fafafa;
-    color:#111;
-}
-
-
-/* сетка */
-
-body::before {
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
 
     background-image:
-    linear-gradient(#00000008 1px,transparent 1px),
-    linear-gradient(90deg,#00000008 1px,transparent 1px);
+    linear-gradient(#00000008 1px, transparent 1px),
+    linear-gradient(90deg,#00000008 1px, transparent 1px);
 
     background-size:32px 32px;
 
-    z-index:-1;
-
 }
 
 
 
-/* контейнер */
+
+
+/* общий контейнер */
 
 .container {
 
-    width:100%;
-    max-width:1100px;
+    width:min(1100px, 100%);
+
     margin:auto;
-    padding:30px 20px;
+
+    padding:40px 30px;
 
 }
 
 
 
-/* заголовки */
 
-h1 {
 
-    font-size:64px;
-    line-height:1;
-    font-weight:900;
+/* кнопки */
+
+button,
+.btn,
+a.btn {
+
+
+    border:none;
+
+    background:#111;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 
 }
 
 
-h2 {
 
-    font-size:32px;
+button:hover,
+.btn:hover {
+
+    transform:translateY(-2px);
+
+    opacity:.85;
 
 }
+
+
+
+
+/* белые кнопки */
+
+.btn-light {
+
+    background:white;
+
+    color:#111;
+
+    border:1px solid #ddd;
+
+}
+
 
 
 
 /* карточки */
 
 .card {
+
 
     background:white;
 
@@ -76,90 +132,52 @@ h2 {
 
     padding:30px;
 
-    box-shadow:
-    0 10px 40px #00000008;
-
 }
 
 
 
-/* кнопки */
 
-
-button,
-.btn {
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#111;
-
-    color:white;
-
-    border:none;
-
-    padding:14px 28px;
-
-    border-radius:40px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-
-
-button:hover,
-.btn:hover {
-
-    transform:translateY(-3px);
-
-    opacity:.85;
-
-}
-
-
-
-/* формы */
+/* поля */
 
 
 input,
 textarea {
 
+
     width:100%;
-
-    padding:15px;
-
-    border-radius:16px;
 
     border:1px solid #ddd;
 
+    background:white;
+
+    border-radius:16px;
+
+    padding:15px;
+
+    font-family:inherit;
+
     font-size:16px;
 
-    outline:none;
-
 }
+
 
 
 
 textarea {
 
-    min-height:100px;
+    resize:none;
 
 }
 
 
 
-/* чат */
+/* ===================
+   ЧАТ
+=================== */
 
 
 .chat {
+
 
     display:flex;
 
@@ -173,19 +191,23 @@ textarea {
 
 .message {
 
-    max-width:75%;
+
+    max-width:70%;
 
     padding:14px 18px;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    background:#f1f1f1;
+    background:white;
+
+    border:1px solid #ddd;
 
 }
 
 
 
 .message.user {
+
 
     align-self:flex-end;
 
@@ -199,9 +221,8 @@ textarea {
 
 .message.admin {
 
-    align-self:flex-start;
 
-    background:#eee;
+    align-self:flex-start;
 
 }
 
@@ -209,76 +230,93 @@ textarea {
 
 .message.system {
 
+
     align-self:center;
 
-    background:#ddd;
-
     font-size:13px;
+
+    background:#eee;
 
 }
 
 
 
 
+/* ===================
+   АДМИНКА
+=================== */
 
-/* тикеты админ */
 
+.admin-card {
 
-.ticket-card {
 
     background:white;
 
     border:1px solid #ddd;
 
-    border-radius:20px;
+    border-radius:24px;
 
-    padding:20px;
+    padding:24px;
 
-    margin-bottom:15px;
-
-}
-
-
-
-.ticket-card:hover {
-
-    transform:translateY(-3px);
+    margin-bottom:16px;
 
 }
 
 
 
-/* навигация */
+.admin-card a {
 
 
+    text-decoration:none;
+
+}
+
+
+
+.status {
+
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* ===================
+   HEADER
+=================== */
+
+
+header,
 .nav {
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px;
 
     background:white;
 
     border-bottom:1px solid #ddd;
 
+    padding:20px 30px;
+
+
 }
 
 
 
 
-/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+/* ===================
+   МОБИЛА
+=================== */
 
 
-@media(max-width:700px){
+@media(max-width:768px){
 
 
 .container {
 
-    padding:15px;
+    padding:20px 15px;
 
 }
 
@@ -286,7 +324,10 @@ textarea {
 
 h1 {
 
-    font-size:38px;
+
+    font-size:38px!important;
+
+    line-height:1.05;
 
 }
 
@@ -304,28 +345,18 @@ h2 {
 
     padding:20px;
 
-    border-radius:20px;
+    border-radius:22px;
 
 }
 
 
 
 button,
-.btn {
+.btn,
+a.btn {
+
 
     width:100%;
-
-    padding:16px;
-
-}
-
-
-
-.nav {
-
-    flex-direction:column;
-
-    gap:15px;
 
 }
 
@@ -339,18 +370,20 @@ button,
 
 
 
-.chat {
+.admin-card {
 
-    min-height:70vh;
+
+    padding:18px;
 
 }
 
 
 
-input,
-textarea {
+header,
+.nav {
 
-    font-size:16px;
+
+    padding:15px;
 
 }
 
