@@ -887,7 +887,7 @@ def stats():
 
 
 
-
+init_db()
 
 if __name__=="__main__":
 
