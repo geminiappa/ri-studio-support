@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="ru">
 
 <head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
 RI Studio Statistics
 </title>
 
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="/static/style.css">
 
 
 </head>
 
 
+
+
 <body>
+
+
 
 
 <header class="header">
@@ -28,16 +36,23 @@ RI Studio Admin
 </div>
 
 
-<div class="nav">
 
 
-<a href="/admin">
+<div class="header-actions">
 
-<button>
+
+<a class="btn btn-light"
+href="/admin">
 
 ← Назад
 
-</button>
+</a>
+
+
+<a class="btn"
+href="/">
+
+Сайт
 
 </a>
 
@@ -52,14 +67,19 @@ RI Studio Admin
 
 
 
-<section class="hero">
+
+
+
+<main class="container fade">
+
 
 
 <div class="badge">
 
-📊 STATISTICS
+• ADMIN STATISTICS
 
 </div>
+
 
 
 
@@ -76,17 +96,39 @@ RI Studio Admin
 
 
 
-<div class="support">
+
+
+<section class="admin-grid">
+
+
+
+
+
+
+<div class="admin-box">
 
 
 <h2>
-👥 Пользователи
+
+👥
+
 </h2>
 
 
-<h1>
+<h3>
+
+Пользователи
+
+</h3>
+
+
+
+<p style="font-size:45px;font-weight:900;color:#111;">
+
 {{users}}
-</h1>
+
+</p>
+
 
 
 </div>
@@ -95,17 +137,34 @@ RI Studio Admin
 
 
 
-<div class="support">
+
+
+
+<div class="admin-box">
 
 
 <h2>
-📩 Всего тикетов
+
+📩
+
 </h2>
 
 
-<h1>
+
+<h3>
+
+Всего тикетов
+
+</h3>
+
+
+
+<p style="font-size:45px;font-weight:900;color:#111;">
+
 {{tickets}}
-</h1>
+
+</p>
+
 
 
 </div>
@@ -115,26 +174,88 @@ RI Studio Admin
 
 
 
-<div class="support">
+
+
+<div class="admin-box">
 
 
 <h2>
-✅ Закрытые
+
+✅
+
 </h2>
 
 
-<h1>
+
+<h3>
+
+Закрыто
+
+</h3>
+
+
+
+<p style="font-size:45px;font-weight:900;color:#111;">
+
 {{closed}}
-</h1>
+
+</p>
+
 
 
 </div>
+
+
 
 
 
 
 
 </section>
+
+
+
+
+
+
+
+
+
+<section class="card"
+style="margin-top:40px;">
+
+
+
+<h2>
+
+RI Studio Support
+
+</h2>
+
+
+
+<p>
+
+Здесь отображается общая информация
+о работе поддержки.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+</main>
+
+
+
 
 
 
