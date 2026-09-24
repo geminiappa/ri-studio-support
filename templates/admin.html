@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="ru">
 
 <head>
 
-<title>
-RI Studio Admin
-</title>
+<meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>RI Studio Admin</title>
 
+<link rel="stylesheet" href="/static/style.css">
 
 </head>
 
 
 <body>
-
 
 
 <header class="header">
@@ -30,31 +28,23 @@ RI Studio Admin
 
 
 
-<div class="nav">
+<div class="header-actions">
 
 
-<a href="/">
-
-<button>
+<a class="btn btn-light"
+href="/">
 
 ← На сайт
 
-</button>
-
 </a>
 
 
-
-<a href="/admin/stats">
-
-<button>
+<a class="btn"
+href="/admin/stats">
 
 📊 Статистика
 
-</button>
-
 </a>
-
 
 
 </div>
@@ -68,17 +58,15 @@ RI Studio Admin
 
 
 
-
-<section class="hero">
+<main class="container fade">
 
 
 
 <div class="badge">
 
-● ADMIN PANEL
+• ADMIN PANEL
 
 </div>
-
 
 
 
@@ -93,16 +81,11 @@ RI Studio Admin
 
 
 
-
 <p>
 
 Администратор:
 
-<b>
-
-{{admin_name}}
-
-</b>
+<b>{{ admin_name }}</b>
 
 </p>
 
@@ -112,8 +95,7 @@ RI Studio Admin
 
 
 
-
-<div class="support">
+<section>
 
 
 <h2>
@@ -127,38 +109,30 @@ RI Studio Admin
 
 
 
-{% for t in tickets %}
+{% if tickets %}
 
 
 
-<div style="
-
-background:white;
-
-border:1px solid #ddd;
-
-padding:25px;
-
-border-radius:25px;
-
-margin-top:20px;
-
-">
+{% for ticket in tickets %}
 
 
 
-<h2>
+<div class="ticket">
 
-#{{t.id}}
 
-</h2>
+
+<div class="ticket-title">
+
+#{{ ticket.id }}
+
+</div>
 
 
 
 
 <p>
 
-👤 {{t.user}}
+👤 {{ ticket.user }}
 
 </p>
 
@@ -167,9 +141,10 @@ margin-top:20px;
 
 <p>
 
-{{t.title}}
+{{ ticket.title }}
 
 </p>
+
 
 
 
@@ -178,22 +153,20 @@ margin-top:20px;
 
 Статус:
 
-<b>
+<span class="status">
 
-{{t.status}}
+{{ ticket.status }}
 
-</b>
+</span>
+
 
 </p>
 
 
 
 
-<a href="/admin/ticket/{{t.id}}"
-
-class="primary"
-
-style="text-decoration:none;display:inline-block;">
+<a class="btn"
+href="/admin/ticket/{{ ticket.id }}">
 
 Открыть →
 
@@ -206,25 +179,37 @@ style="text-decoration:none;display:inline-block;">
 
 
 
-{% else %}
-
-
-<p>
-
-Новых тикетов нет.
-
-</p>
-
-
-
 {% endfor %}
 
 
 
 
+{% else %}
+
+
+
+<div class="card">
+
+
+<h2>
+
+Нет тикетов
+
+</h2>
+
+
+<p>
+
+Новых обращений пока нет.
+
+</p>
+
 
 </div>
 
+
+
+{% endif %}
 
 
 
@@ -235,7 +220,7 @@ style="text-decoration:none;display:inline-block;">
 
 
 
-
+</main>
 
 
 </body>
