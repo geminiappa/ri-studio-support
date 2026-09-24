@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+RI Studio Admin
+</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+
+<header class="header">
+
+
+<div class="logo">
+
+RI Studio Admin
+
+</div>
+
+
+
+<div class="nav">
+
+
+<a href="/">
+
+<button>
+
+← На сайт
+
+</button>
+
+</a>
+
+
+
+<a href="/admin/stats">
+
+<button>
+
+📊 Статистика
+
+</button>
+
+</a>
+
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+
+<section class="hero">
+
+
+
+<div class="badge">
+
+● ADMIN PANEL
+
+</div>
+
+
+
+
+
+<h1>
+
+Панель<br>
+
+поддержки.
+
+</h1>
+
+
+
+
+<p>
+
+Администратор:
+
+<b>
+
+{{admin_name}}
+
+</b>
+
+</p>
+
+
+
+
+
+
+
+
+<div class="support">
+
+
+<h2>
+
+📩 Тикеты
+
+</h2>
+
+
+
+
+
+
+{% for t in tickets %}
+
+
+
+<div style="
+
+background:white;
+
+border:1px solid #ddd;
+
+padding:25px;
+
+border-radius:25px;
+
+margin-top:20px;
+
+">
+
+
+
+<h2>
+
+#{{t.id}}
+
+</h2>
+
+
+
+
+<p>
+
+👤 {{t.user}}
+
+</p>
+
+
+
+
+<p>
+
+{{t.title}}
+
+</p>
+
+
+
+
+<p>
+
+Статус:
+
+<b>
+
+{{t.status}}
+
+</b>
+
+</p>
+
+
+
+
+<a href="/admin/ticket/{{t.id}}"
+
+class="primary"
+
+style="text-decoration:none;display:inline-block;">
+
+Открыть →
+
+</a>
+
+
+
+</div>
+
+
+
+
+{% else %}
+
+
+<p>
+
+Новых тикетов нет.
+
+</p>
+
+
+
+{% endfor %}
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+</body>
+
+</html>

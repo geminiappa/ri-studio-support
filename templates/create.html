@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Создание тикета
+</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+RI Studio
+</div>
+
+
+<div class="nav">
+
+<a href="https://ri-studio-games.onrender.com/" target="_blank">
+
+<button>
+Главный сайт
+</button>
+
+</a>
+
+
+</div>
+
+
+</header>
+
+
+
+
+<section class="hero">
+
+
+
+<div class="badge">
+
+● NEW TICKET
+
+</div>
+
+
+
+
+<h1>
+
+Новое<br>
+обращение.
+
+</h1>
+
+
+
+
+
+<div class="support">
+
+
+
+<form action="/create_ticket" method="post">
+
+
+<input
+name="user"
+placeholder="Ваше имя"
+required
+
+style="
+width:100%;
+padding:15px;
+border-radius:20px;
+border:1px solid #ddd;
+margin-bottom:15px;
+"
+>
+
+
+
+<input
+name="title"
+placeholder="Название проблемы"
+required
+
+style="
+width:100%;
+padding:15px;
+border-radius:20px;
+border:1px solid #ddd;
+margin-bottom:15px;
+"
+>
+
+
+
+
+<input
+name="reason"
+placeholder="Причина"
+required
+
+style="
+width:100%;
+padding:15px;
+border-radius:20px;
+border:1px solid #ddd;
+margin-bottom:15px;
+"
+>
+
+
+
+
+<textarea
+
+name="description"
+
+placeholder="Подробное описание"
+
+required
+
+style="
+width:100%;
+height:120px;
+padding:15px;
+border-radius:20px;
+border:1px solid #ddd;
+"
+></textarea>
+
+
+
+<br><br>
+
+
+
+<button class="primary">
+
+Создать обращение
+
+</button>
+
+
+
+</form>
+
+
+
+</div>
+
+
+</section>
+
+
+
+</body>
+
+</html>

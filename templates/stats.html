@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+RI Studio Statistics
+</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+
+<div class="logo">
+
+RI Studio Admin
+
+</div>
+
+
+<div class="nav">
+
+
+<a href="/admin">
+
+<button>
+
+← Назад
+
+</button>
+
+</a>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+<section class="hero">
+
+
+<div class="badge">
+
+📊 STATISTICS
+
+</div>
+
+
+
+
+<h1>
+
+Статистика<br>
+
+поддержки.
+
+</h1>
+
+
+
+
+
+<div class="support">
+
+
+<h2>
+👥 Пользователи
+</h2>
+
+
+<h1>
+{{users}}
+</h1>
+
+
+</div>
+
+
+
+
+
+<div class="support">
+
+
+<h2>
+📩 Всего тикетов
+</h2>
+
+
+<h1>
+{{tickets}}
+</h1>
+
+
+</div>
+
+
+
+
+
+
+<div class="support">
+
+
+<h2>
+✅ Закрытые
+</h2>
+
+
+<h1>
+{{closed}}
+</h1>
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+</body>
+
+</html>
